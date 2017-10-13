@@ -21,4 +21,13 @@ describe("Task", function() {
     assert.strictEqual(task.reward, 30);
   })
 
+  it("Should start as uncompleted", function(){
+    assert.strictEqual(task.completed, false);
+  })
+
+  it("Should be able to be set to completed", function(){
+    task.completed = true;
+    assert.strictEqual(task.completed, true);
+  })
+
 });
