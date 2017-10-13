@@ -21,4 +21,10 @@ describe("Hero", function() {
     assert.strictEqual(hero.favouriteFood, "chicken");
   });
 
+  it ("should start with 0 tasks", function() {
+    assert.strictEqual(hero.tasks.length, 0);
+  });
+
+
+
 });
