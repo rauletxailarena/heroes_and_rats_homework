@@ -1,20 +1,30 @@
 var assert = require("assert")
 var Task = require("../task")
+var Hero = require("../hero")
 
 
 describe("Task", function() {
 
   var task;
+  var task2;
+  var task3;
+  var hero;
+
+
+
   beforeEach( function() {
-    task = new Task("hard", 7, 30);
+    task = new Task(6, 4, 30);
+    task2 = new Task(8, 6, 45);
+    task3 = new Task(4, 3, 25);
+    hero = new Hero();
   });
 
   it("Should have a difficulty", function(){
-    assert.strictEqual(task.difficulty, "hard");
+    assert.strictEqual(task.difficulty, 6);
   })
 
   it("Should have a urgency level", function(){
-    assert.strictEqual(task.urgency, 7);
+    assert.strictEqual(task.urgency, 4);
   })
 
   it("Should have a reward", function(){
@@ -29,5 +39,6 @@ describe("Task", function() {
     task.completed = true;
     assert.strictEqual(task.completed, true);
   })
+
 
 });
