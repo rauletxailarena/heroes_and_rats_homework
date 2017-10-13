@@ -61,6 +61,21 @@ describe("Hero", function() {
     assert.deepStrictEqual(hero.tasks, [task3, task2, task]);
   })
 
+  it ("should be able to see tasks maked as not-completed", function(){
+    hero.tasks.push(task);
+    hero.tasks.push(task2);
+    hero.tasks.push(task3);
+    assert.deepStrictEqual(hero.getUncompletedTasks(), [task, task2, task3]);
+  });
+
+  it ("should be able to see tasks maked as completed", function(){
+    hero.tasks.push(task);
+    hero.tasks.push(task2);
+    hero.tasks.push(task3);
+    hero.tasks[0].completed = true;
+    assert.deepStrictEqual(hero.getCompletedTasks(), [task]);
+  });
+
 
 
 

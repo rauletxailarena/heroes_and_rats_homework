@@ -21,6 +21,18 @@ Hero.prototype.sortTasksBy = function(category){
   });
 };
 
+Hero.prototype.getUncompletedTasks = function(){
+  return this.tasks.filter(function(task){
+    return !task.completed;
+  });
+};
+
+Hero.prototype.getCompletedTasks = function(){
+  return this.tasks.filter(function(task){
+    return task.completed;
+  });
+};
+
 module.exports = Hero;
 
 var a = new Hero("Asfas", "afasf", "Asfaf");
