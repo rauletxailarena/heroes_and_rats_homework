@@ -10,6 +10,8 @@ Hero.prototype.talk = function() {
 }
 
 Hero.prototype.eat = function(food) {
+  if (food.contaminated === true) this.health -= food.replentishment;
+  return;
   var bonusMultiplier = 1;
   if (food.name === this.favouriteFood) bonusMultiplier = 1.5;
   this.health += food.replentishment * bonusMultiplier;

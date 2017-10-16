@@ -2,6 +2,7 @@ var assert = require("assert");
 var Hero = require("../hero");
 var Food = require("../food");
 var Task = require("../task");
+var Rat = require("../rat");
 
 describe("Hero", function() {
 
@@ -12,6 +13,7 @@ describe("Hero", function() {
   var task;
   var task2;
   var task3;
+  var rat;
 
   beforeEach( function() {
     hero = new Hero("Link", 100, "chicken");
@@ -20,6 +22,7 @@ describe("Hero", function() {
     task = new Task(6, 4, 30);
     task2 = new Task(8, 6, 45);
     task3 = new Task(4, 3, 50);
+    rat = new Rat();
   });
 
   it ("should have a name", function() {
@@ -76,7 +79,10 @@ describe("Hero", function() {
     assert.deepStrictEqual(hero.getCompletedTasks(), [task]);
   });
 
-
-
+  it ("Should lose health by eating posioned food", function(){
+    rat.touchFood(chicken);
+    hero.eat(chicken);
+    assert.strictEqual(hero.health,90);
+  })
 
 });
